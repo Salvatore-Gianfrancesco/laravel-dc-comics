@@ -2,6 +2,8 @@
 
 @section('content')
 <div class="container">
+    <a href="{{Route('comics.create')}}" class="btn btn-primary my-3">Add new comic</a>
+
     <div class="table-responsive-md">
         <table class="table table-striped table-hover table-borderless table-primary align-middle">
             <thead class="table-light">
