@@ -1,1 +1,168 @@
-@import '~bootstrap/scss/bootstrap'
+@import '~bootstrap/scss/bootstrap';
+@import '~resources/scss/partials/_variables';
+
+body {
+
+    img {
+        max-width: 100%;
+    }
+
+    header {
+        .header_top {
+            background-color: $primary;
+
+            a {
+                color: $light;
+                font-weight: 500;
+                text-decoration: none;
+            }
+        }
+
+        .header_bottom {
+            img {
+                width: 80px;
+                aspect-ratio: 1/1;
+            }
+
+            .logo {
+                &:hover {
+                    box-shadow: none;
+                }
+            }
+
+            a {
+                height: 100%;
+                color: $gray;
+                font-weight: 500;
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                transition: 0.25s;
+
+                &.active {
+                    box-shadow: inset 0px -5px 0px 0px $primary;
+                }
+
+                &:hover {
+                    color: $primary;
+                    box-shadow: inset 0px -5px 0px 0px $primary;
+                }
+            }
+
+            .search {
+                font-weight: 500;
+
+                div {
+                    width: 120px;
+                    border-bottom: 2px solid $primary;
+                }
+            }
+        }
+    }
+
+    main {
+        .jumbotron {
+            height: 24rem;
+            background-image: url('~resources/img/jumbotron.jpg');
+            background-size: cover;
+            background-position: top;
+            font-weight: 500;
+
+            div {
+                background-color: $primary;
+                color: $light;
+                font-size: 24px;
+                position: absolute;
+                bottom: 0;
+                left: 7rem;
+                transform: translate(0, 50%);
+            }
+        }
+
+        .current_series {
+            background-color: $dark;
+
+            .card {
+                background-color: $dark;
+                color: $light;
+                cursor: pointer;
+
+                img {
+                    height: 14rem;
+                    width: 100%;
+                    object-fit: cover;
+                    object-position: top;
+                }
+            }
+        }
+
+        .buy_comics {
+            background-color: $primary;
+            color: $light;
+
+            .col div {
+                cursor: pointer;
+
+                img {
+                    height: 60px;
+                    max-width: 60px;
+                }
+            }
+
+        }
+    }
+
+    footer {
+        .footer_top {
+            color: $light-gray;
+            background-image: url('~resources/img/footer-bg.jpg');
+            background-size: cover;
+
+            h5 {
+                color: $light;
+            }
+
+            li {
+                cursor: pointer;
+                transition: 0.25s;
+
+                &:hover {
+                    color: $primary;
+                }
+            }
+
+            span {
+                color: $primary;
+            }
+
+            .dc_logo_bg {
+                background-image: url('~resources/img/dc-logo-bg.png');
+                background-size: cover;
+                background-position: center;
+            }
+        }
+
+        .footer_bottom {
+            background-color: $gray;
+            color: $primary;
+            font-weight: 500;
+
+            button {
+                background-color: transparent;
+                color: $light;
+                text-decoration: none;
+                font-weight: 500;
+                border: 2px solid $primary;
+                transition: 0.25s;
+
+                &:hover {
+                    background-color: $primary;
+                }
+            }
+
+            img {
+                cursor: pointer;
+            }
+        }
+    }
+}
