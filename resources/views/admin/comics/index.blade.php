@@ -25,14 +25,23 @@
                     <td>{{$comic->sale_date}}</td>
                     <td>{{$comic->type}}</td>
                     <td><img width="80" src="{{$comic->thumb}}" alt="{{$comic->title}}"></td>
-                    <td>
-                        <a href='{{route("comics.show", $comic->id)}}' class="btn btn-primary view">
+                    <td class="d-flex flex-column gap-2">
+                        <a href='{{Route("comics.show", $comic->id)}}' class="btn btn-primary">
                             <i class="fa-solid fa-eye"></i>
                         </a>
 
-                        <a href='{{route("comics.edit", $comic->id)}}' class="btn btn-primary view">
+                        <a href='{{Route("comics.edit", $comic->id)}}' class="btn btn-secondary">
                             <i class="fa-solid fa-pen-to-square"></i>
                         </a>
+
+                        <form action="{{Route('comics.destroy', $comic->id)}}" method="post">
+                            @csrf
+                            @method('delete')
+
+                            <button type="submit" class="btn btn-danger w-100">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </form>
                     </td>
                 </tr>
                 @empty
