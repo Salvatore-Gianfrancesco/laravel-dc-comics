@@ -29,6 +29,10 @@
                         <a href='{{route("comics.show", $comic->id)}}' class="btn btn-primary view">
                             <i class="fa-solid fa-eye"></i>
                         </a>
+
+                        <a href='{{route("comics.edit", $comic->id)}}' class="btn btn-primary view">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                        </a>
                     </td>
                 </tr>
                 @empty

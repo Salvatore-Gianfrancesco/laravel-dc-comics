@@ -13,15 +13,15 @@
             </a>
 
             <nav class="d-flex align-items-center gap-4 text-uppercase">
-                <a href="" disabled>characters</a>
+                <a href="">characters</a>
                 <a href="{{Route('comics.index')}}" class="{{Route::currentRouteName() === 'comics.index' ? 'active' : ''}}">comics</a>
-                <a href="" disabled>movies</a>
-                <a href="" disabled>tv</a>
-                <a href="" disabled>games</a>
-                <a href="" disabled>collectibles</a>
-                <a href="" disabled>videos</a>
-                <a href="" disabled>fans</a>
-                <a href="" disabled>news</a>
+                <a href="">movies</a>
+                <a href="">tv</a>
+                <a href="">games</a>
+                <a href="">collectibles</a>
+                <a href="">videos</a>
+                <a href="">fans</a>
+                <a href="">news</a>
                 <a href="" class="gap-1">shop
                     <i class="fa-solid fa-caret-down"></i>
                 </a>
