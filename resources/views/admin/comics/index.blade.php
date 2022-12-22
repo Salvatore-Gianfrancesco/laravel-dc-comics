@@ -26,22 +26,45 @@
                     <td>{{$comic->type}}</td>
                     <td><img width="80" src="{{$comic->thumb}}" alt="{{$comic->title}}"></td>
                     <td class="d-flex flex-column gap-2">
+                        <!-- Show button -->
                         <a href='{{Route("comics.show", $comic->id)}}' class="btn btn-primary">
                             <i class="fa-solid fa-eye"></i>
                         </a>
 
+                        <!-- Edit & Update button -->
                         <a href='{{Route("comics.edit", $comic->id)}}' class="btn btn-secondary">
                             <i class="fa-solid fa-pen-to-square"></i>
                         </a>
 
-                        <form action="{{Route('comics.destroy', $comic->id)}}" method="post">
-                            @csrf
-                            @method('delete')
+                        <!-- Modal trigger button -->
+                        <button type="button" class="btn btn-danger w-100" data-bs-toggle="modal" data-bs-target="#deleteComicId-{{$comic->id}}">
+                            Delete
+                        </button>
 
-                            <button type="submit" class="btn btn-danger w-100">
-                                <i class="fa-solid fa-trash-can"></i>
-                            </button>
-                        </form>
+                        <!-- Modal Body -->
+                        <!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
+                        <div class="modal fade" id="deleteComicId-{{$comic->id}}" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog" aria-labelledby="modalId-{{$comic->id}}" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="modalId-{{$comic->id}}">Delete comic?</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Are you sure you want to delete permanently the record? The action is irreversible.
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <form action="{{Route('comics.destroy', $comic->id)}}" method="post">
+                                            @csrf
+                                            @method('delete')
+
+                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </td>
                 </tr>
                 @empty
