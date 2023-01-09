@@ -40,14 +40,17 @@ class ComicController extends Controller
     {
         // dd($request->all());
 
+        $validated = $request->validated();
+        // dd($validated);
+
         $comic = new Comic();
-        $comic->title = $request['title'];
-        $comic->description = $request['description'];
-        $comic->thumb = $request['thumb'];
-        $comic->price = $request['price'];
-        $comic->series = $request['series'];
-        $comic->sale_date = $request['sale_date'];
-        $comic->type = $request['type'];
+        $comic->title = $validated['title'];
+        $comic->description = $validated['description'];
+        $comic->thumb = $validated['thumb'];
+        $comic->price = $validated['price'];
+        $comic->series = $validated['series'];
+        $comic->sale_date = $validated['sale_date'];
+        $comic->type = $validated['type'];
         $comic->save();
 
         return to_route('comics.index');
